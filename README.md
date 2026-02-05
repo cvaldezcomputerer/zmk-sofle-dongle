@@ -16,7 +16,3 @@
 
 如需3D打印的模型文件或者键盘有任何异常和故障，请联系380465425@qq.com
 
-# Sofle键位图
-
-<img src="keymap-drawer/eyelash_sofle.svg" >
-
