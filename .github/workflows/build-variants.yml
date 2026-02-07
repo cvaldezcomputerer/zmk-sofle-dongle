@@ -16,7 +16,7 @@ jobs:
           - variant: pc  
             config: my_keyboard_pc
             artifact_suffix: "_PC"
-            central_board: xiao_ble
+            central_board: nice_nano_v2
           - variant: mac
             config: my_keyboard_mac  
             artifact_suffix: "_Mac"
@@ -81,11 +81,11 @@ jobs:
       - name: Rename Right Peripheral Artifact  
         run: cp build/zephyr/zmk.uf2 eyelash_sofle_peripheral_right${{ matrix.artifact_suffix }}.uf2
 
-      - name: West Build (settings_reset)
-        run: west build --pristine -s zmk/app -b ${{ matrix.central_board }} -- -DSHIELD="settings_reset" -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: West Build (settings_reset nice_nano_v2)
+        run: west build --pristine -s zmk/app -b nice_nano_v2 -- -DSHIELD="settings_reset" -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
 
-      - name: Rename Settings Reset Artifact
-        run: cp build/zephyr/zmk.uf2 settings_reset${{ matrix.artifact_suffix }}.uf2
+      - name: Rename Settings Reset Artifact (nice_nano_v2)
+        run: cp build/zephyr/zmk.uf2 settings_reset_nice_nano_v2${{ matrix.artifact_suffix }}.uf2
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
