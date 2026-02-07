@@ -60,5 +60,4 @@
 
 &blue_led {
     status = "disabled";
-    default-state = "off";
 };
