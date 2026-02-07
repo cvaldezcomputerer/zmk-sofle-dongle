@@ -60,7 +60,6 @@ Standard QWERTY layout with some customizations:
 ## Troubleshooting
 
 - If the halves do not pair after `settings_reset`, keep the dongle and both halves powered at the same time while flashing the reset firmware and the normal firmware. Powering everything together helps the automatic pairing complete.
-- The dongle MCU status LED is disabled in the central dongle overlay by targeting the `blue_led` node label (nice!nano). If the LED still flashes, it may be controlled by the bootloader or charger hardware instead of ZMK.
 
 ---
 

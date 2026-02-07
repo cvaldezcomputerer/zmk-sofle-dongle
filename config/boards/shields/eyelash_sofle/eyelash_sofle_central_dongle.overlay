@@ -58,6 +58,3 @@
 	};
 };
 
-&blue_led {
-    status = "disabled";
-};
