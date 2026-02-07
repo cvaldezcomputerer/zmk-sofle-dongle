@@ -58,6 +58,8 @@
 	};
 };
 
-&leds {
-    status = "disabled";
+/ {
+    leds {
+        status = "disabled";
+    };
 };
