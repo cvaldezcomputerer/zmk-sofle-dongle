@@ -57,3 +57,7 @@
         prechargep = <0x22>;
 	};
 };
+
+&leds {
+    status = "disabled";
+};

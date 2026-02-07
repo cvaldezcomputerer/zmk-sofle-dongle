@@ -57,6 +57,10 @@ Standard QWERTY layout with some customizations:
 ### Layer 2 & 3
 - Bluetooth controls, system functions, and additional utilities
 
+## Troubleshooting
+
+- If the halves do not pair after `settings_reset`, keep the dongle and both halves powered at the same time while flashing the reset firmware and the normal firmware. Powering everything together helps the automatic pairing complete.
+
 ---
 
 
