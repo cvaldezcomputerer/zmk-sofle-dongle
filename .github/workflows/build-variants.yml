@@ -12,12 +12,15 @@ jobs:
           - variant: original
             config: eyelash_sofle
             artifact_suffix: ""
+            central_board: nice_nano_v2
           - variant: pc  
             config: my_keyboard_pc
             artifact_suffix: "_PC"
+            central_board: xiao_ble
           - variant: mac
             config: my_keyboard_mac  
             artifact_suffix: "_Mac"
+            central_board: nice_nano_v2
     
     container:
       image: zmkfirmware/zmk-build-arm:stable
@@ -61,7 +64,7 @@ jobs:
           cp config/${{ matrix.config }}.conf config/eyelash_sofle.conf
 
       - name: West Build (eyelash_sofle_central_dongle)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD="eyelash_sofle_central_dongle dongle_display" -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b ${{ matrix.central_board }} -- -DSHIELD="eyelash_sofle_central_dongle dongle_display" -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
 
       - name: Rename Central Dongle Artifact
         run: cp build/zephyr/zmk.uf2 eyelash_sofle_central_dongle${{ matrix.artifact_suffix }}.uf2
