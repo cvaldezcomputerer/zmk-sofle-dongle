@@ -94,6 +94,20 @@
     behaviors {
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        tabback {
+            bindings = <&kp LS(LC(TAB))>;
+            key-positions = <30 29>;
+        };
+
+        tabForward {
+            bindings = <&kp LC(TAB)>;
+            key-positions = <34 35>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
