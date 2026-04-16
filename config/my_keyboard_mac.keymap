@@ -83,15 +83,6 @@
             label = "MAC_UNDO";
         };
 
-        mac_spotlight: mac_spotlight {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(SPACE)>;
-            label = "MAC_SPOTLIGHT";
-        };
-    };
-
-    behaviors {
     };
 
     combos {
@@ -105,6 +96,44 @@
         tabForward {
             bindings = <&kp LC(TAB)>;
             key-positions = <34 35>;
+        };
+
+        // --- APP SWITCHING ---
+
+        combo_gui_hold {
+            bindings = <&kp LGUI>;
+            key-positions = <28 30>;
+            layers = <0>;
+        };
+
+        combo_app_switch {
+            bindings = <&kp LG(TAB)>;
+            key-positions = <27 28>;
+            require-prior-idle-ms = <150>;
+        };
+
+        // --- TAB MANAGEMENT ---
+
+        combo_new_tab {
+            bindings = <&kp LG(T)>;
+            key-positions = <18 30>;
+        };
+
+        combo_close_tab {
+            bindings = <&kp LG(W)>;
+            key-positions = <15 30>;
+        };
+
+        combo_tab_plain {
+            bindings = <&kp TAB>;
+            key-positions = <34 36>;
+        };
+
+        // --- EDITING ---
+
+        combo_del_line {
+            bindings = <&kp LG(BACKSPACE)>;
+            key-positions = <30 60>;
         };
     };
 
@@ -127,7 +156,7 @@
         layer_1 {
             bindings = <
 &kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5                  &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9    &kp F10    &trans
-&trans      &kp GRAVE        &kp N2          &kp N3           &kp LG(LS(N4))   &kp LS(LG(NUMBER_4))    &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME  &kp MINUS  &kp EQUAL
+&trans      &kp GRAVE        &kp N2          &kp N3           &kp LG(LS(N4))   &trans                  &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME  &kp MINUS  &kp EQUAL
 &trans      &kp N1           &kp N2          &kp N3           &kp N4           &kp N5                  &mmv MOVE_LEFT   &kp N6           &kp N7           &kp N8      &kp N9    &kp N0     &kp RBRC
 &trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI         &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11   &kp F12    &trans
 &kp C_MUTE  &trans           &trans          &trans           &trans           &trans                  &mkp LCLK        &trans           &trans           &trans      &trans    &trans
