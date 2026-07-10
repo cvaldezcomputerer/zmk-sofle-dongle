@@ -107,11 +107,11 @@
 &kp CAPS   &kp Q         &kp W         &kp E      &kp R      &kp T                &kp DOWN_ARROW   &kp Y      &kp U          &kp I          &kp O             &kp P              &kp BSLH
 &kp TAB    &kp A         &kp S         &kp D      &kp F      &kp G                &kp LEFT_ARROW   &kp H      &kp J          &kp K          &kp L             &kp SEMI           &kp APOS
 &kp LSHFT  &kp Z         &kp X         &kp C      &kp V      &kp B                &kp RIGHT_ARROW  &kp N      &kp M          &kp COMMA      &kp DOT           &kp FSLH           &kp EQUAL
-&kp ENTER  &kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp SPACE  &lt 1 LS(LC(TAB))    &kp ENTER        &kp ENTER  &kp BACKSPACE  &lt 2 LC(TAB)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&kp ENTER  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &kp SPACE  &lt 1 LS(LC(TAB))    &kp ENTER        &kp ENTER  &kp BACKSPACE  &lt 2 LC(TAB)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "PC_L0";
+            display-name = "LINUX_L0";
         };
 
         layer_1 {
@@ -123,7 +123,7 @@
 &kp C_MUTE  &trans           &trans          &trans           &trans        &trans           &mkp LCLK        &trans           &trans           &trans      &trans    &trans
             >;
 
-            display-name = "PC_L1";
+            display-name = "LINUX_L1";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -136,7 +136,7 @@
 &trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
             >;
 
-            display-name = "PC_L2";
+            display-name = "LINUX_L2";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -149,7 +149,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            display-name = "PC_L3";
+            display-name = "LINUX_L3";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -162,7 +162,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            display-name = "PC_L4";
+            display-name = "LINUX_L4";
             sensor-bindings = <&scroll_encoder>;
         };
     };

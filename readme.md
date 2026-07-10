@@ -12,6 +12,20 @@ This is a ZMK firmware configuration for a Sofle split keyboard with a wireless 
 - **RGB & encoders**: Supports rotary encoders and RGB lighting
 - **Low power consumption**: Optimized sleep modes
 
+## Firmware Variants
+
+CI (`.github/workflows/build-variants.yml`) builds three firmware sets from one physical layout:
+
+| Variant | Source files | Thumb cluster (left, outward → inward) |
+|---|---|---|
+| `windows` | `config/my_keyboard_windows.*` | ENTER, **WIN**, ALT, **CTRL**, SPACE |
+| `linux` | `config/my_keyboard_linux.*` | ENTER, **CTRL**, ALT, **WIN**, SPACE |
+| `mac` | `config/my_keyboard_mac.*` | CTRL, (combo), **CMD**, SPACE |
+
+`windows` and `linux` are otherwise identical — only Ctrl and GUI (Win/Super) are swapped, so the "primary OS modifier" (Super for Hyprland, matching Cmd on Mac) sits nearest the thumb/space, while Ctrl sits outward. Windows keeps Ctrl nearest space to match default Windows conventions.
+
+Each build step copies `config/my_keyboard_<variant>.keymap`/`.conf` over `config/eyelash_sofle.keymap`/`.conf` before compiling, so `config/eyelash_sofle.keymap` in the repo is just a leftover scratch copy — edit the `my_keyboard_*` files instead.
+
 ## Display Customization
 
 The dongle display images are defined in an external ZMK module called [zmk-dongle-display](https://github.com/englmaxi/zmk-dongle-display) (by englmaxi, v0.3).

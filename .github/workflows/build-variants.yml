@@ -7,14 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        variant: [pc, mac]
+        variant: [windows, linux, mac]
         include:
-          - variant: pc  
-            config: my_keyboard_pc
-            artifact_suffix: "_PC"
+          - variant: windows
+            config: my_keyboard_windows
+            artifact_suffix: "_Windows"
+            central_board: nice_nano_v2
+          - variant: linux
+            config: my_keyboard_linux
+            artifact_suffix: "_Linux"
             central_board: nice_nano_v2
           - variant: mac
-            config: my_keyboard_mac  
+            config: my_keyboard_mac
             artifact_suffix: "_Mac"
             central_board: nice_nano_v2
     
