@@ -29,6 +29,49 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
+    behaviors {
+        // Mac-style editing shortcuts at the firmware level: tapping the letter
+        // alone sends the letter, but with GUI (Super) held it emits Ctrl+<key>.
+        // mod-morph masks the triggering GUI by default, so the host sees a clean
+        // Ctrl+C (not Super+Ctrl+C) -- no compositor key-injection, no lag. Shift
+        // passes through, so GUI+Shift+Z -> Ctrl+Shift+Z (redo) for free. Only
+        // C/V/X/Z/A morph, so every other Super+<key> shortcut is unaffected.
+        cmd_c: cmd_c {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C>, <&kp LC(C)>;   // copy
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
+        cmd_v: cmd_v {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp V>, <&kp LC(V)>;   // paste
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
+        cmd_x: cmd_x {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&kp LC(X)>;   // cut
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
+        cmd_z: cmd_z {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Z>, <&kp LC(Z)>;   // undo (GUI+Shift+Z -> redo)
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
+        cmd_a: cmd_a {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp LC(A)>;   // select-all
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -105,8 +148,8 @@
             bindings = <
 &kp ESC    &kp N1        &kp N2        &kp N3     &kp N4     &kp N5               &kp UP_ARROW     &kp N6     &kp N7         &kp N8         &kp N9            &kp N0             &kp MINUS
 &kp CAPS   &kp Q         &kp W         &kp E      &kp R      &kp T                &kp DOWN_ARROW   &kp Y      &kp U          &kp I          &kp O             &kp P              &kp BSLH
-&kp TAB    &kp A         &kp S         &kp D      &kp F      &kp G                &kp LEFT_ARROW   &kp H      &kp J          &kp K          &kp L             &kp SEMI           &kp APOS
-&kp LSHFT  &kp Z         &kp X         &kp C      &kp V      &kp B                &kp RIGHT_ARROW  &kp N      &kp M          &kp COMMA      &kp DOT           &kp FSLH           &kp EQUAL
+&kp TAB    &cmd_a        &kp S         &kp D      &kp F      &kp G                &kp LEFT_ARROW   &kp H      &kp J          &kp K          &kp L             &kp SEMI           &kp APOS
+&kp LSHFT  &cmd_z        &cmd_x        &cmd_c     &cmd_v     &kp B                &kp RIGHT_ARROW  &kp N      &kp M          &kp COMMA      &kp DOT           &kp FSLH           &kp EQUAL
 &kp ENTER  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &kp SPACE  &lt 1 LS(LC(TAB))    &kp ENTER        &kp ENTER  &kp BACKSPACE  &lt 2 LC(TAB)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
